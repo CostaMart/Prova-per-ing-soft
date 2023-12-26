@@ -2,8 +2,6 @@ on:
  pull_request:
   types:
     - opened
-  branches: 
-    - 'main'
 jobs:
   printing_job:
     runs-on: 
