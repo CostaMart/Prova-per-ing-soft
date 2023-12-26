@@ -1,0 +1,10 @@
+on: 
+  push:
+    branches:
+      - 'UI'
+jobs:
+  UNICO:
+    runs-on: ubuntu-latest
+    steps:
+    - name: prova stampa
+      run: echo "anche questo funziona incredibile"
