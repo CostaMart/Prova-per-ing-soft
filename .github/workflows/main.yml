@@ -2,7 +2,7 @@ on:
  pull_request:
   types:
     - opened
-    branches:
+  branches:
     - 'main/**'
 jobs:
   printing_job:
