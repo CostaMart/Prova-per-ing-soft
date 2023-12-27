@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Crea ciao.txt
-      run: echo "${{secrets.COSA}}" > ciao.txt
+      run: echo "${{ secrets.COSA }}" > ciao.txt
 
     - name: Archivia ciao.txt
       uses: actions/upload-artifact@v2
