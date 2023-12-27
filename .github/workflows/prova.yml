@@ -1,0 +1,20 @@
+name: Crea e salva ciao.txt
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Crea ciao.txt
+      run: echo "ciao" > ciao.txt
+
+    - name: Archivia ciao.txt
+      uses: actions/upload-artifact@v2
+      with:
+        name: ciao.txt
+        path: ciao.txt
