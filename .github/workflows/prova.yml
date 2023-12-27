@@ -1,9 +1,7 @@
 name: Annulla ultimo commit
 
 on: [push]
-# Set permissions on GITHUB_TOKEN to allow updates to GitHub Actions workflows
-permissions:
-  actions: write
+
 
 jobs:
   revert:
