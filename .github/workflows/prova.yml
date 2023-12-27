@@ -1,26 +1,22 @@
-name: Annulla ultimo commit
-
-on: [push]
-
+name: Manual Undo Push Action
+on: 
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to undo commit'
+        required: true
+        default: 'master'
 
 jobs:
-  revert:
-
+  Undo:
     runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Configura Git
-      run: |
-        git config --global user.name 'github-actions'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-    - name: Annulla ultimo commit
-      run: |
-        git revert HEAD --no-edit
-        git push origin HEAD:master
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+           ref: ${{ github.event.inputs.branch }}
+           fetch-depth: 0 
+      - name: Undo Push
+        uses: exions/undo-push@v1
+        with:
+          branch: ${{ github.event.inputs.branch }}
